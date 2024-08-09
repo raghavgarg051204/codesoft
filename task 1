@@ -1,0 +1,33 @@
+package codsoft;
+
+import java.util.Scanner;
+
+public class Task1_Guess_the_number {
+    public static void main(String[] args) {
+        System.out.println("Guess the number from (1-100): ");
+        Scanner sc = new Scanner(System.in);
+
+        // here we use Math.random()*100 because we have to guess the number from 1 to 100
+        int random_num = (int) (Math.random() * 100);
+        int guess_num = 0 ;
+        System.out.println("You have only 5 guesses, GOOD LUCK!");
+
+        for (int i=5; i>=1; i--){
+            guess_num = sc.nextInt();
+            if (guess_num>0){
+                if (guess_num==random_num){
+                    System.out.println("CONGRATS! You have guess the correct number");break;
+                   } else if (guess_num>random_num) {
+                    System.out.println("Your guess is TOO HIGH");
+                   }else{
+                    System.out.println("Your guess is TOO LOW");
+                   }
+                System.out.println("No. of Guesses left: "+(i-1));
+                if(i==1){
+                    System.out.println(" *GAME OVER* ");
+                }
+            }
+
+        }
+    }
+}

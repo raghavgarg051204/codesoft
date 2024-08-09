@@ -1,0 +1,48 @@
+package codsoft;
+
+import java.util.Scanner;
+
+public class Task3_ATM_Interface {
+    static int balance = 1000;
+    static Scanner sc = new Scanner(System.in);
+    public static void   check_balance(){
+        System.out.println(balance);
+    }
+    public static void withdraw(){
+        System.out.println("enter the withdraw amount: ");
+        int with_amount = sc.nextInt();
+        if (with_amount<=balance ){
+            balance = balance-with_amount;
+        }else {
+            System.out.println("Sorry you don't have sufficient amount to withdraw ");
+        }
+    }
+    public static void deposit(){
+        System.out.println("Enter the deposit amount: ");
+        int dep_amount = sc.nextInt();
+        balance = balance+dep_amount;
+    }
+    public static void main(String[] args) {
+        System.out.println("    Welcome to ATM    ");
+        while(true){
+        System.out.println("Press 1 for Check Balance");
+        System.out.println("Press 2 for Withdraw Balance");
+        System.out.println("Press 3 for Deposit Balance");
+        int choice = sc.nextInt();
+        switch (choice) {
+            case 1:
+                check_balance();
+                break;
+            case 2:
+                withdraw();
+                break;
+            case 3:
+                deposit();
+                break;
+            default:
+                System.out.println("please enter valid number");
+                break;
+            }
+        }
+    }
+}
